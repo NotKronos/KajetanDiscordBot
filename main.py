@@ -13,5 +13,12 @@ def get_token() -> str:
     except IOError:
         print("Error reading token")
 
+intents = discord.Intents.default()
+intents.typing = False
+intents.presences = False
+
+client = commands.Bot(command_prefix="!", intents=intents)
 
 token = get_token()
+
+client.run(token)
